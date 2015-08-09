@@ -1,0 +1,17 @@
+            <div class="footer navbar" style="height: auto;">
+                <div class="navbar-list">
+                    <small>
+                        Built by your boy
+                        <a class="footer__anch" href="http://twitter.com/the_taqquikarim" target="_blank">Taq Karim</a>, powered by statikPress and 
+                        <a class="footer__anch" href="https://developer.github.com/" target="_blank">this</a>,
+                        <a class="footer__anch" href="http://facebook.github.io/react/" target="_blank">this</a>,
+                        <img src="http://clover.fewd.us/images/coffee.svg" width="16" class="footer__image">,
+                        and 
+                        <img src="http://clover.fewd.us/images/heart.svg" width="16" class="footer__image">
+                    </small>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+

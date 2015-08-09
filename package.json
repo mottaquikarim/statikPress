@@ -1,0 +1,19 @@
+{
+  "name": "statik",
+  "version": "1.0.0",
+  "description": "simple static site generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mottaqui Karim",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "commander": "^2.8.1",
+    "marked": "^0.3.5",
+    "q": "^1.4.1",
+    "underscore": "^1.8.3",
+    "watch": "^0.16.0"
+  }
+}
