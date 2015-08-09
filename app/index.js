@@ -27,7 +27,7 @@ FileIO.readFile( config.getDir + config.nav, 'utf-8' )
  
 function startGenerationChain( nav ) {
     // globals to populate in the chain
-    var compiled, nav, header, footer;
+    var compiled, nav, header, footer, container, containerCompiled;
 
     // first, grab the nav.partial template
     FileIO.readFile( config.getDir + config.navpartial, 'utf-8' )
@@ -37,10 +37,11 @@ function startGenerationChain( nav ) {
         compiled = _.template( data );
         nav = compiled( { navListItems: nav } );
 
-        // read the header and footer templates
+        // read the header and footer templates and container templates
         var arr = [
             FileIO.readFile( config.getDir + config.headerpartial, 'utf-8' ),
-            FileIO.readFile( config.getDir + config.footerpartial, 'utf-8' )
+            FileIO.readFile( config.getDir + config.footerpartial, 'utf-8' ),
+            FileIO.readFile( config.getDir + config.containerpartial, 'utf-8' )
         ];
 
         // promise on BOTH being read
@@ -50,9 +51,11 @@ function startGenerationChain( nav ) {
         // save the file data into our globals
         header = returnables.shift();
         footer = returnables.shift();
+        container = returnables.shift();
 
         // NOTE: this would be the place to do any underscore tranform
         // magic if desired
+        containerCompiled = _.template( container );
 
         // read all files in content dir
         return FileIO.readDir( config.getDir + config.input ); 
@@ -69,7 +72,12 @@ function startGenerationChain( nav ) {
             ar.push(
                 FileIO.readFile( config.getDir + config.input + file + '.md', 'utf-8' )
                 .then(function( data ) {
-                    var html = [ header, nav, marked( data ), footer ].join('\n');
+                    var html = [
+                        header,
+                        nav,
+                        containerCompiled( {data: marked( data )} ),
+                        footer
+                    ].join('\n');
                     
                     return FileIO.writeFile( config.getDir + config.output + file + '.html', html );
                 })

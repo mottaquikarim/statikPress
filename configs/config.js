@@ -7,6 +7,7 @@ module.exports = {
     }).join('/'),
     navpartial: '/configs/nav.partial',
     headerpartial: '/configs/header.partial',
+    containerpartial: '/configs/container.partial',
     footerpartial: '/configs/footer.partial',
     editor: '/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl',
     editorArgs: [ '-w' ]
