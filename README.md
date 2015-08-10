@@ -1,10 +1,12 @@
 # statikPress
 
-__(a super simple markdown based static site generator built with nodejs)__
+*(a super simple markdown based static site generator built with nodejs)*
 
-## How to run
+Please see example of output + documentation [here](http://mottaquikarim.github.io/statikPress/)
 
-1. `git clone https://github.com/mottaquikarim/statikPress/tree/master`
+## Quickstart
+
+1. `git clone https://github.com/mottaquikarim/statikPress`
 2. `npm install`
 3. `node press`
 
